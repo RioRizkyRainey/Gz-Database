@@ -171,6 +171,7 @@ public class Utils {
 		Field[] fields = classType.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++) {
 			Field field = fields[i];
+			field.setAccessible(true);
 			Id idAnnotation = field.getAnnotation(Id.class);
 			if (idAnnotation != null) {
 				return field;

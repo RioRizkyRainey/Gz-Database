@@ -2,6 +2,7 @@ package com.gz.databaselibrary;
 
 import static com.gz.databaselibrary.GzApplication.getInstance;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -16,7 +17,12 @@ import com.gz.databaselibrary.annotation.Column;
 import com.gz.databaselibrary.annotation.Id;
 import com.gz.databaselibrary.annotation.Table;
 
-public class GzEntity {
+public class GzEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8594432892186377783L;
 
 	/**
 	 * @return id save row
@@ -94,4 +100,14 @@ public class GzEntity {
 		return entity;
 	}
 
+	public String getId(){
+		Object object = null;
+		Field primary = Utils.getIdFromClass(getClass());
+		try {
+			object = primary.get(object);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return object.toString();
+	}
 }
