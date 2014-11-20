@@ -7,14 +7,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class GzDatabase extends SQLiteOpenHelper {
 
 	private static GzDatabase main;
-	private static SQLiteDatabase database;
+	protected static SQLiteDatabase database;
 	private  Context context;
 	public static String name;
 	public static int version;
