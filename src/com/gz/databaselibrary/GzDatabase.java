@@ -83,7 +83,7 @@ public class GzDatabase extends SQLiteOpenHelper {
 
 	public long update(String table, ContentValues cv, String whereClause,
 			String[] whereArgs) {
-		return database.update(table, cv, whereClause, null);
+		return database.update(table, cv, whereClause, whereArgs);
 	}
 
 	public long delete(String table, String whereClause, String whereArgs[]) {

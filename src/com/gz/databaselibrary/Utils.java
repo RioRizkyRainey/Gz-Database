@@ -9,6 +9,7 @@ import java.util.Date;
 
 import com.gz.databaselibrary.annotation.Column;
 import com.gz.databaselibrary.annotation.Id;
+import com.gz.databaselibrary.annotation.Table;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -72,7 +73,8 @@ public class Utils {
 		}
 	}
 
-	public static ContentValues setValueFromField(Field[] attributes, ContentValues values, Object object) {
+	public static ContentValues setValueFromField(Field[] attributes, Object object) {
+		ContentValues values = new ContentValues();
 		for (Field field : attributes) {
 			field.setAccessible(true);
 			Log.d("FIELD", field.getName());
@@ -85,6 +87,7 @@ public class Utils {
 						columnValue = field.get(object);
 						String columnName = column.name();
 						if (columnType.equals(String.class)) {
+							System.out.println("JUAAAAAAAMMBBBBBOOOOOOOOLLLL");
 							values.put(columnName, (String) columnValue);
 						} else if (columnType.equals(Short.class) || columnType.equals(short.class)) {
 							values.put(columnName, (Short) columnValue);
@@ -117,12 +120,14 @@ public class Utils {
 								values.put(columnName, String.valueOf(columnValue));
 							}
 						}
+						System.out.println(columnName + ": " + columnValue + "   column type: "+columnType);
 					} catch (IllegalAccessException e1) {
 						Log.e("Oh shit..", e1.getMessage());
 					}
 				}
 			}
 		}
+		System.out.println("CV " + values);
 		return values;
 	}
 
@@ -198,12 +203,24 @@ public class Utils {
 		try {
 			entity = (T) classType.getDeclaredConstructor().newInstance();
 			Field[] attributes = entity.getClass().getDeclaredFields();
+//			Object[] object = new Object[attributes.length];
+//			int index = 0;
 			for (Field field : attributes) {
 				setFieldValueFromCursor(field, cursor, entity);
+//				object[index++] = field.get(entity);
 			}
+//			entity = (T) classType.getDeclaredConstructor().newInstance(object);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return entity;
+	}
+	
+	public static Table getTableAnnotation(Class<?> classType) {
+		Table table = classType.getAnnotation(Table.class);
+		if(table == null) {
+			throw new Error("Annotation Table not found!");
+		}
+		return table;
 	}
 }

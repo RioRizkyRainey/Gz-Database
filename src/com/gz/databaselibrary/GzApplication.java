@@ -25,7 +25,10 @@ public class GzApplication extends Application {
 		GzDatabase.version = versionDatabase;
 		gzDb = GzDatabase.getInstance(main);
 	}
-	
+	/**
+	 * get Application
+	 * @return Application
+	 */
 	public static GzApplication getInstance(){
 		return main;
 	}
