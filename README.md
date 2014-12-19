@@ -2,6 +2,7 @@ Gz-Database
 ===========
 
 Android Database Library.
+Gz-Database is a library for ease in handling create, read, update, delete in the SQLite database in android. So that the programmer does not required effortlessly in to write a query in android
 
 ## Note:
 Gz-Database is still in alpha version.
