@@ -16,7 +16,7 @@ This library facilitates you in a database CRUD on android.
  * CRUD more easier
  * Automatic update database (just change meta-data in manifest)
  
-## Coming up - 0.2.15 (insya Allah)
+## Coming up - 0.3.0 (insya Allah)
  * Initialization entity from JSON Object more easier
  * Auto POST to your webservice if device no internet connection 
  * Send HTTP request without call AsyncTask
