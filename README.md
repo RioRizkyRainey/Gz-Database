@@ -110,7 +110,7 @@ You can contact me via:
  * linkedin: [Rio Rizky Rainey Ferbiansyah](http://id.linkedin.com/pub/rio-rizky-rainey-ferbiansyah/aa/135/703/)
 
 ### License
-    Copyright 2014 Rio Rizky Rainey Ferbiansyah
+    Copyright 2018 Rio Rizky Rainey Ferbiansyah
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
